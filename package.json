@@ -1,8 +1,8 @@
 {
   "name": "react-russian-map",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/russianMap.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/vaeum/react-russian-map.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "map"
+  ],
+  "author": "vaeum",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vaeum/react-russian-map/issues"
@@ -24,10 +27,7 @@
     "babel-preset-react": "^6.5.0",
     "json-loader": "^0.5.4",
     "react": "^15.1.0",
+    "react-dom": "^15.1.0",
     "webpack": "^1.13.1"
-  },
-  "dependencies": {
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0"
   }
 }
