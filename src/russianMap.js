@@ -1,4 +1,4 @@
-import RUSSIAN_MAP from './json/russia.json';
+import RUSSIAN_MAP from './RUSSIAN_MAP.js';
 import React from 'react';
 
 const RussianMap = React.createClass({

@@ -31,7 +31,6 @@ Thumbs.db
 .idea
 .svn
 bower_components
-dist
 
 # Node.JS
 node_modules

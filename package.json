@@ -1,10 +1,12 @@
 {
   "name": "react-russian-map",
-  "version": "0.0.1",
-  "description": "",
-  "main": "src/russianMap.js",
+  "version": "0.0.2",
+  "description": "React component russian map",
+  "main": "lib/russianMap.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:commonjs": "babel src --out-dir lib",
+    "build": "npm run build:commonjs",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -14,7 +16,9 @@
     "react",
     "map"
   ],
-  "author": "vaeum",
+  "author": {
+    "name": "vaeum"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vaeum/react-russian-map/issues"
