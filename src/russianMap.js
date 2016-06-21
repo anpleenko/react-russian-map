@@ -2,9 +2,42 @@ import RUSSIAN_MAP from './RUSSIAN_MAP.js';
 import React from 'react';
 
 const RussianMap = React.createClass({
+  getInitialState() {
+    return {
+      popupDisplay: false,
+      id: 0
+    }
+  },
+
+  getCursor(e, id){
+    // let elmnt = document.getElementsByTagName('body');
+    let elmnt = document.getElementById('root');
+    let x = elmnt.scrollLeft;
+    let y = elmnt.scrollTop;
+
+    this.setState({
+      x: (e.pageX - x) + 10,
+      y: (e.pageY - y) + 10,
+      popupDisplay: true,
+      id: id
+    })
+  },
+
   render() {
+
+    let popupStyle = {
+      display: (this.state.popupDisplay)?("block"):("none"),
+      top: this.state.y,
+      left: this.state.x,
+      position: "fixed"
+    };
+
     return (
       <div className="russian-map-wrap">
+        <div className="map-popup" style={popupStyle}>
+          {RUSSIAN_MAP[this.state.id].value}
+        </div>
+
         <svg
           width="100%"
           height="689"
@@ -21,7 +54,9 @@ const RussianMap = React.createClass({
               className={"russian-map-region"}
               d={item.path}
               fill="#D9D9D9"
-              stroke="#A6BECE" />
+              stroke="#A6BECE"
+              onMouseMove={(e)=>{this.getCursor(e, id)}}
+              onMouseOut={(e)=>{this.setState({popupDisplay: false})}}/>
           )}
 
           <g>
@@ -34,7 +69,6 @@ const RussianMap = React.createClass({
             <circle class="st75" cx="-364.3" cy="592.3" r="2.3" fill="red" className="russian-map-capital"/>
             <circle class="st75" cx="-216.1" cy="500.7" r="2.3" fill="red" className="russian-map-capital"/>
           </g>
-
         </svg>
       </div>
     );

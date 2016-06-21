@@ -4,6 +4,7 @@
   "description": "React component russian map",
   "main": "lib/russianMap.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "build:commonjs": "babel src --out-dir lib",
     "build": "npm run build:commonjs",
     "prepublish": "npm run build"
