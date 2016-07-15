@@ -10,10 +10,8 @@ const RussianMap = React.createClass({
   },
 
   getCursor(e, id){
-    // let elmnt = document.getElementsByTagName('body');
-    let elmnt = document.getElementById('root');
-    let x = elmnt.scrollLeft;
-    let y = elmnt.scrollTop;
+    let x = document.body.scrollLeft;
+    let y = document.body.scrollTop;
 
     this.setState({
       x: (e.pageX - x) + 10,
