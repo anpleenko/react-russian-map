@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+- 0.12
+env:
+  global:
+  - GH_REF: github.com/vaeum/react-russian-map.git
+  - secure: kQd8JFBYuYa/jFgt7I9U0prDuJooVVW5Ui0ogblzVMsKXK3++7rodKivmz9CgRLP33IIEdF/vF1yntil3yD5X23Tg3xN0gXeGn8c0T34m/L8IkQccu+m9gjvHKFMAi631fphx4YuzydehAX/R8YI7OOV91nl5RwkvFuZg1hcZdBW9sH6gZU3d5+HrP39Zo9wxDDoj9A1rCtX2sqPtDxSjdVx8O/5cZXaijQNLdZ8Xdk1Hhi6Zvr8BN+HYMcAMGt/qILNYrOKMuQYjyEnUOjFpCJ9exIW0Gf75zKDP965WEkO1teuXY4rBl1OV6gYjA0A26vRgNdieOEEl2g7K8r5O5wxr66IcKTwLLlisafp/4zAACsAkTEfs7GQPjp/nzectJXxOBQ78Z9BlciN3ehdZBaucGvu6xhJ9vxuVi0TIoBHPdTI2uDxGot5k/k5tChoI114JqahOF86x7aDeGPxwlCLPiGNJobQJY0B+0WAp3kGgvQT/8dz/7yrzuh2O62G9CpoUIZDQjxr+8rkkDmUfFoFz81GaI9JfQGobJ8GsknyYA1sVovqm92cA2qJ97pALHr2YaJWA1fRtps7UncSeFAhpqi3QM2ln1GAMh0+VNN1e+B2X8Dx+ojIcdX2nMhxCItXNsw3GS+5yYriRDXAs5pMTd3NLinRWPrJ6cXikJ8=
+before_install:
+- npm install -g webpack
+- npm install -g babel
+- npm install -g babel-cli
+before_script:
+- webpack
+script:
+- rm -rf .git
+- git init
+- git config user.name "Alexander Anpleenko"
+- git config user.email "vaeum@yahoo.com"
+- git add .
+- git commit -m "Deploy to GitHub Pages"
+- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
